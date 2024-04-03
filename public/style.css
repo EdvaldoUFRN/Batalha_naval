@@ -1,0 +1,49 @@
+table,
+th,
+td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+td.espacos {
+    width: 20px;
+    height: 10px;
+}
+
+td.espacos.portaAvioes {
+    background-color: yellow;
+    height: 15px;
+
+}
+
+td.espacos.encouracado {
+    background-color: red;
+
+    height: 15px;
+}
+
+td.espacos.hidroAvioes {
+
+    height: 15px;
+    background-color: blue;
+}
+
+td.espacos.submarinos {
+
+    height: 15px;
+    background-color: green;
+}
+
+td.espacos.cruzadores {
+
+    height: 15px;
+    background-color: orange;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    border: 1px solid #ddd;
+}
+

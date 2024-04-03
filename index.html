@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha Naval</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <h1 style="text-align: left;">Batalha Naval</h1>
+
+    <div style="width: auto">
+        <table style="float: left; width: 0px; height: 10px;">
+
+        </table>
+        <table id="myTable" ondrop="drop(event)" ondragover="allowDrop(event)" style="float: left;">
+            <caption>
+                Player 1
+            </caption>
+            <tr>
+                <td>1</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td style="width: 15px; height: 15px;"></td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>D</td>
+                <td>E</td>
+                <td>F</td>
+                <td>G</td>
+                <td>H</td>
+                <td>I</td>
+                <td>J</td>
+            </tr>
+        </table>
+        <table style="float: right; width:50%; height: 240px;">
+
+        </table>
+        <table id="div2" style="float: right;">
+            <caption>Player 2
+                <div id="play2ready"
+                    style="display: inline-block; width: 10px; height: 10px; background-color: white; border: 1px solid black;">
+                </div>
+            </caption>
+            <tr>
+                <td>1</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+                <td class="espacos"></td>
+            </tr>
+            <tr>
+                <td style="width: 15px; height: 15px;"></td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>D</td>
+                <td>E</td>
+                <td>F</td>
+                <td>G</td>
+                <td>H</td>
+                <td>I</td>
+                <td>J</td>
+            </tr>
+        </table>
+    </div>
+    <div style="clear:both"></div>
+    <!--elemento que vai ser criado dinamicamente-->
+    <div id="jogadoreSala"></div>
+    
+    <div style="width: auto; display: table;">
+        <div style="display: table-row;">
+
+            <caption>Porta-Aviões</caption>
+            <table id="portaAvioes" style=" border-collapse:collapse; 
+            border-spacing: 0 1em; display: table; border: none;">
+                <tr>
+                    <td class="espacos portaAvioes" draggable="true" id="portaAvioes1" ondragstart="drag(event)"></td>
+                    <td class="espacos portaAvioes" draggable="true" id="portaAvioes2" ondragstart="drag(event)"></td>
+                    <td class="espacos portaAvioes" draggable="true" id="portaAvioes3" ondragstart="drag(event)"></td>
+                    <td class="espacos portaAvioes" draggable="true" id="portaAvioes4" ondragstart="drag(event)"></td>
+                    <td class="espacos portaAvioes" draggable="true" id="portaAvioes5" ondragstart="drag(event)"></td>
+                </tr>
+            </table>
+            <div style="width: 30px;"></div>
+            <caption>Encouraçados</caption>
+            <table id="encouracados" style="border-collapse:collapse; 
+            border-spacing: 0 1em;display: table; border: none;">
+                <tr>
+                    <td class="espacos encouracado" draggable="true" id="encouracado1" ondragstart="drag(event)"></td>
+                    <td class="espacos encouracado" draggable="true" id="encouracado2" ondragstart="drag(event)"></td>
+                    <td class="espacos encouracado" draggable="true" id="encouracado3" ondragstart="drag(event)"></td>
+                    <td class="espacos encouracado" draggable="true" id="encouracado4" ondragstart="drag(event)"></td>
+                </tr>
+                <tr>
+                    <td style="border: none;"></td>
+                </tr>
+                <tr>
+                    <td class="espacos encouracado" draggable="true" id="2encouracado1" ondragstart="drag(event)"></td>
+                    <td class="espacos encouracado" draggable="true" id="2encouracado2" ondragstart="drag(event)"></td>
+                    <td class="espacos encouracado" draggable="true" id="2encouracado3" ondragstart="drag(event)"></td>
+                    <td class="espacos encouracado" draggable="true" id="2encouracado4" ondragstart="drag(event)"></td>
+                </tr>
+            </table>
+            <div style="width: 30px;"></div>
+            <caption>Hidroaviões</caption>
+            <table id="hidroavioes" style="border-collapse:collapse; 
+            border-spacing: 0 1em;display: table; border: none;">
+                <tr>
+                    <td style="width: 20px; height: 10px; background-color: white; border: none;"></td>
+
+                    <td class="espacos hidroAvioes" draggable="true" id="hidroAviao2" ondragstart="drag(event)"></td>
+                    <td style="width: 20px; height: 10px; background-color: white; border: none;"></td>
+                    <td style="width: 20px; height: 10px; background-color: white; border: none;"></td>
+                    <td style="width: 10px; height: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos hidroAvioes" draggable="true" id="hidroAviao3" ondragstart="drag(event)"></td>
+                    <td style="width: 20px; height: 10px; background-color: white; border: none;"></td>
+                    <td style="width: 10px; height: 10px; background-color: white; border: none;"></td>
+                    <td style="width: 10px; height: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos hidroAvioes" draggable="true" id="3hidroAviao1" ondragstart="drag(event)"></td>
+                </tr>
+                <tr>
+                    <td class="espacos hidroAvioes" draggable="true" id="hidroAviao1" ondragstart="drag(event)"></td>
+                    <td style="width: 20px; height: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos hidroAvioes" draggable="true" id="2hidroAviao1" ondragstart="drag(event)"></td>
+                    <td style="width: 20px; height: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos hidroAvioes" draggable="true" id="2hidroAviao2" ondragstart="drag(event)"></td>
+                    <td style="width: 20px; height: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos hidroAvioes" draggable="true" id="2hidroAviao3" ondragstart="drag(event)"></td>
+                    <td style="width: 20px; height: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos hidroAvioes" draggable="true" id="3hidroAviao2" ondragstart="drag(event)"></td>
+                    <td style="width: 10px; height: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos hidroAvioes" draggable="true" id="3hidroAviao3" ondragstart="drag(event)"></td>
+                </tr>
+            </table>
+            <div style="width: 30px;"></div>
+            <caption>Submarinos</caption>
+            <table id="submarino" style="border-collapse:separate; 
+            display: table; border: none;">
+                <tr>
+                    <td class="espacos submarinos" draggable="true" id="submarino1" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="submarino2" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="submarino3" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="submarino4" ondragstart="drag(event)"></td>
+                </tr>
+                <tr>
+                    <td style="border: none;"></td>
+                </tr>
+                <tr>
+                    <td class="espacos submarinos" draggable="true" id="2submarino1" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="2submarino2" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="2submarino3" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="2submarino4" ondragstart="drag(event)"></td>
+                </tr>
+                <tr>
+                    <td style="border: none;"></td>
+                </tr>
+                <tr>
+                    <td class="espacos submarinos" draggable="true" id="3submarino1" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="3submarino2" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="3submarino3" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="3submarino4" ondragstart="drag(event)"></td>
+                </tr>
+                <tr>
+                    <td style="border: none;"></td>
+                </tr>
+                <tr>
+                    <td class="espacos submarinos" draggable="true" id="4submarino1" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="4submarino2" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="4submarino3" ondragstart="drag(event)"></td>
+                    <td class="espacos submarinos" draggable="true" id="4submarino4" ondragstart="drag(event)"></td>
+                </tr>
+            </table>
+            <div style="width: 30px;"></div>
+            <caption>Cruzadores</caption>
+            <table id="cruzador" style="border-collapse:collapse; 
+            border-spacing: 0 1em;display: table; border: none;">
+                <tr>
+                    <td class="espacos cruzadores" draggable="true" id="cruzador1" ondragstart="drag(event)"></td>
+                    <td class="espacos cruzadores" draggable="true" id="cruzador2" ondragstart="drag(event)"></td>
+                    <td style="width: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos cruzadores" draggable="true" id="cruzador3" ondragstart="drag(event)"></td>
+                    <td class="espacos cruzadores" draggable="true" id="cruzador4" ondragstart="drag(event)"></td>
+                    <td style="width: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos cruzadores" draggable="true" id="cruzador5" ondragstart="drag(event)"></td>
+                    <td class="espacos cruzadores" draggable="true" id="cruzador6" ondragstart="drag(event)"></td>
+                </tr>
+                <tr>
+                    <td style="border: none;"></td>
+                </tr>
+
+                <tr>
+                    <td class="espacos cruzadores" draggable="true" id="2cruzador1" ondragstart="drag(event)"></td>
+                    <td class="espacos cruzadores" draggable="true" id="2cruzador2" ondragstart="drag(event)"></td>
+                    <td style="width: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos cruzadores" draggable="true" id="2cruzador3" ondragstart="drag(event)"></td>
+                    <td class="espacos cruzadores" draggable="true" id="2cruzador4" ondragstart="drag(event)"></td>
+                    <td style="width: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos cruzadores" draggable="true" id="2cruzador5" ondragstart="drag(event)"></td>
+                    <td class="espacos cruzadores" draggable="true" id="2cruzador6" ondragstart="drag(event)"></td>
+                </tr>
+                <tr>
+                    <td style="border: none;"></td>
+                </tr>
+
+                <tr>
+                    <td class="espacos cruzadores" draggable="true" id="3cruzador1" ondragstart="drag(event)"></td>
+                    <td class="espacos cruzadores" draggable="true" id="3cruzador2" ondragstart="drag(event)"></td>
+                    <td style="width: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos cruzadores" draggable="true" id="3cruzador3" ondragstart="drag(event)"></td>
+                    <td class="espacos cruzadores" draggable="true" id="3cruzador4" ondragstart="drag(event)"></td>
+                    <td style="width: 10px; background-color: white; border: none;"></td>
+                    <td class="espacos cruzadores" draggable="true" id="3cruzador5" ondragstart="drag(event)"></td>
+                    <td class="espacos cruzadores" draggable="true" id="3cruzador6" ondragstart="drag(event)"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+    <form>
+
+        <p id="salaGame">
+            <input type="button" id="btnCreate" value="Criar partida">
+        </p>
+        <button id="btnJoin">Entrar na Partida</button>
+        <input type="text" id="txtGameId">
+        <p><label for="btnComeca">Clica aqui após terminar de montar o seu tabuleiro</label>
+            <input type="button" id="btnComeca" value="Começar Partida">
+        </p>
+    </form>
+    <script src="cliente.js"></script>
+
+</body>
+
+</html>
