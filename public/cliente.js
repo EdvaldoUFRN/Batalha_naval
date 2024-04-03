@@ -7,7 +7,7 @@ let clientId = null;
 let gameId = null;
 let njogador = null;
 let game = null;
-let pontos = null;
+let pontos = 0;
 //fim variáveis
 
 //Elementos HTML
@@ -56,6 +56,7 @@ btnComeca.addEventListener("click", e => {
                     "clientId": clientId,
                     "gameId": gameId
                 })
+                pontos++;
             }
         }
     }
@@ -86,7 +87,6 @@ btnJoin.addEventListener("click", e => {
         "clientId": clientId,
         "gameId": gameId
     }
-    pontos = 56;
     ws.send(JSON.stringify(payLoad));
     
 })
@@ -167,10 +167,15 @@ ws.onmessage = message => {
         console.log(j);
         console.log(acertou);
         console.log(classee);
+        if (jogadores < 2) {
+            alert("Calma, você ainda nem tem um adversário.");
+            return;
+        }
         if (acertou === "não") {
             classee = "espacos bomba";
         }
-        setCellClassName(i, j, classee, jogador);
+        
+        setCellClassName(i, j, classee, jogador, acertou);
     }
 };
 //fim da caixa de mensagens.
@@ -216,11 +221,23 @@ function getCellCoordinates(event) {
     return null;
 }
 
-function setCellClassName(i, j, className, jogadorr) {
+function setCellClassName(i, j, className, jogadorr, acertou) {
     // Obtém a referência para a célula da tabela com os índices fornecidos
     let tabela = (jogadorr === njogador) ? "tabelaInimiga" : "myTable";
     console.log("Valor de tabela:", tabela);
-
+    if (acertou==="sim") {
+        if (jogadorr === njogador) {
+            alert("Você acertou uma embarcação.");
+        }else{
+            alert("Seu adversário acertou uma embarcação.");
+        }
+    }else{
+        if (jogadorr === njogador) {
+            alert("Você não acertou nada.");
+        }else{
+            alert("Seu adversário não acertou nada.");
+        }
+    }
     var cell = document.getElementById(tabela).rows[i - 1].cells[j];
 
     console.log("pegou a tabela");
