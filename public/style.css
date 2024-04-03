@@ -10,8 +10,9 @@ td.espacos {
     height: 10px;
 }
 
-td.espacos.bomb {
+td.espacos.bomba {
     background-color: grey;
+    border-color: red;
 }
 
 td.espacos.portaAvioes {
@@ -50,4 +51,3 @@ table {
 
     border: 1px solid #ddd;
 }
-

@@ -68,10 +68,17 @@ wsServer.on("request", request => {
             const game = games[gameId];
             if (game.clients.length >= 2 || game.clients.some(c => c.clientId === clientId)) {
                 //sorry max players reach
-                if (game.clients.length >= 2)
-                    console.log("Sala lotada!")
+                if (game.clients.length >= 2){
+                    const payLoad = {
+                        "method":"joinErroTamanho",
+                    }
+                    clients[clientId].connection.send(JSON.stringify(payLoad));
+                }
                 if (game.clients.some(c => c.clientId === clientId)) {
-                    console.log("Você já está na sala.")
+                    const payLoad = {
+                        "method":"joinErroJaEsta",
+                    }
+                    clients[clientId].connection.send(JSON.stringify(payLoad));
                 }
                 return;
             }
@@ -109,29 +116,31 @@ wsServer.on("request", request => {
             const j = result.j;
             const jogador = result.jogador;
             const gameId = result.gameId;
-            let className = null;
+            const game = result.game;
+            let className = "";
             let acerto = "não";
             tabuleiro.pecas.forEach(element => {
                 if ((i === element.i && j === element.j) && (gameId === element.gameId && jogador != element.jogador)) {
                     acerto = "sim";
-                    className = element.className;
+                    className = element.ClassName;
+                    console.log(className);
                 }
             });
-            if (acerto!= "sim") {
+            if (acerto != "sim") {
                 className = "espacos bomba";
             }
             const payLoad = {
                 "method": "ataque",
                 "acertou": acerto,
-                
                 "className": className,
                 "i": i,
                 "j": j,
-                "jogador": jogador
+                "jogador": jogador,
+                "jogadores": game.clients.length
             }
-            const con = clients[clientId].connection;
-            con.send(JSON.stringify(payLoad));
-            console.log(`O jogador ${jogador} acertou uma embarcação.`);
+            game.clients.forEach(c => {
+                clients[c.clientId].connection.send(JSON.stringify(payLoad));
+            });
         }
 
 

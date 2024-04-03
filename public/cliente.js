@@ -6,6 +6,8 @@ let ws = new WebSocket('ws://localhost:9090');
 let clientId = null;
 let gameId = null;
 let njogador = null;
+let game = null;
+let pontos = null;
 //fim variáveis
 
 //Elementos HTML
@@ -23,7 +25,7 @@ var oTable = document.getElementById('myTable');
 var rowLength = oTable.rows.length;
 //Eventos que acabam fazendo requisições no servidor.
 btnComeca.addEventListener("click", e => {
-    
+
 
     var payLoad = {
         "method": "tabuleiro",
@@ -47,12 +49,12 @@ btnComeca.addEventListener("click", e => {
                 var child = cellChildren[k]; // Obtém o filho atual
                 var childClassName = child.className;
                 payLoad.pecas.push({
-                    "childClassName": childClassName,
+                    "ClassName": childClassName,
                     "j": j,
-                    "i": i+1,
-                    "jogador":njogador,
-                    "clientId":clientId,
-                    "gameId":gameId
+                    "i": i + 1,
+                    "jogador": njogador,
+                    "clientId": clientId,
+                    "gameId": gameId
                 })
             }
         }
@@ -84,8 +86,9 @@ btnJoin.addEventListener("click", e => {
         "clientId": clientId,
         "gameId": gameId
     }
-
+    pontos = 56;
     ws.send(JSON.stringify(payLoad));
+    
 })
 
 //Caixa de mensagens do cliente.
@@ -99,6 +102,8 @@ ws.onmessage = message => {
         clientId = response.clientId;
         console.log("cliente  id set successfully " + clientId)
     }
+
+
     //método create, usado para pegar o id do game.
     if (response.method === "create") {
         gameId = response.game.id;
@@ -113,9 +118,16 @@ ws.onmessage = message => {
         salaGame.appendChild(d);
     }
 
+    if (response.method === "joinErroTamanho") {
+        alert("A sala já está cheia!");
+    }
+    
+    if (response.method === "joinErroJaEsta") {
+        alert("Você já está na sala.");
+    }
     //método join, vai informar se os jogadores entraram ou não na partida.
     if (response.method === "join") {
-        const game = response.game;
+        game = response.game;
         if (response.clientId == clientId) {
             njogador = response.jogador;
         }
@@ -136,6 +148,30 @@ ws.onmessage = message => {
 
         });
     }
+
+    
+
+    if (response.method === "ataque") {
+        const clientId = response.clientId;
+        const i = response.i;
+        const j = response.j;
+        const jogador = response.jogador;
+        const gameId = response.gameId;
+        const game = response.game;
+        const acertou = response.acertou;
+        let classee = response.className;
+        const jogadores = response.jogadores;
+        console.log(jogador);
+        console.log(jogadores);
+        console.log(i);
+        console.log(j);
+        console.log(acertou);
+        console.log(classee);
+        if (acertou === "não") {
+            classee = "espacos bomba";
+        }
+        setCellClassName(i, j, classee, jogador);
+    }
 };
 //fim da caixa de mensagens.
 ws.onerror = function (event) {
@@ -154,7 +190,7 @@ function drop(ev) {
     ev.preventDefault()
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-   
+
 }
 
 
@@ -180,11 +216,31 @@ function getCellCoordinates(event) {
     return null;
 }
 
+function setCellClassName(i, j, className, jogadorr) {
+    // Obtém a referência para a célula da tabela com os índices fornecidos
+    let tabela = (jogadorr === njogador) ? "tabelaInimiga" : "myTable";
+    console.log("Valor de tabela:", tabela);
+
+    var cell = document.getElementById(tabela).rows[i - 1].cells[j];
+
+    console.log("pegou a tabela");
+    // Verifica se a célula existe
+    if (true) {
+        // Define a classe da célula
+        cell.className = className;
+    }
+}
+
+
 // Adiciona um evento de clique a todas as células da tabela
-var cells = document.querySelectorAll('#div2 td.espacos');
-cells.forEach(function(cell) {
-    cell.addEventListener('click', function(event) {
+var cells = document.querySelectorAll('#tabelaInimiga td.espacos');
+cells.forEach(function (cell) {
+    cell.addEventListener('click', function (event) {
         var coordinates = getCellCoordinates(event);
+        if (!gameId) {
+            alert("Entre em uma partida.")
+            return;
+        }
         if (coordinates) {
             console.log('Célula clicada: (i=' + coordinates.i + ', j=' + coordinates.j + ')');
             // Faça o que desejar com as coordenadas (i, j) da célula clicada
@@ -194,7 +250,8 @@ cells.forEach(function(cell) {
                 "gameId": gameId,
                 "jogador": njogador,
                 "i": coordinates.i,
-                "j": coordinates.j
+                "j": coordinates.j,
+                "game": game
             }
             ws.send(JSON.stringify(payLoad));
 
