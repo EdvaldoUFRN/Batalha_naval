@@ -1,0 +1,27 @@
+ATAQUE {
+METODO CLIENTE
+metodo ataque 
+vai enviar para o servidor o client que está atacando
+game id
+jogador atacante
+coordenadas i e j.
+
+LISTEN SERVIDOR
+metodo ataque
+verifica se o atacante acertou ou não.
+se o ataque não acertou, ele vai pegar uma classname para deixar a cor da celula cinza.
+eu quero mandar para todos os clients daquela partida, aí no cliente vamos fazer o seguinte.
+
+LISTEN CLIENTE
+metodo ataque
+se o jogador for diferente do que atacou, então ele vai modificar as celulas da tabela 1.
+se o jogador for o mesmo que atacou, então ele vai modificar as celulas da tabela 2.
+para fazer essas modificações, a gente vai criar funções para percorrer as tabelas e fazer as devidas interações.
+
+}
+
+TABULEIRO {
+tem que colocar ao invés de começar partida, clicar em pronto.
+e após clicar em pronto ele avisa para o jogador do outro lado quem está pronto e diz para o que clicou em pronto que ele está aguardando o outro jogador.
+então quando os dois estiverem prontos, vai criar uma div que avisa que a partida começou e assim os jogadores poderão atacar...
+}

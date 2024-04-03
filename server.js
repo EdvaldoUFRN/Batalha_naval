@@ -117,9 +117,13 @@ wsServer.on("request", request => {
                     className = element.className;
                 }
             });
+            if (acerto!= "sim") {
+                className = "espacos bomba";
+            }
             const payLoad = {
                 "method": "ataque",
                 "acertou": acerto,
+                
                 "className": className,
                 "i": i,
                 "j": j,
