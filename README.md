@@ -1,4 +1,4 @@
-clona o projeto >> abra a pasta do projeto >> \
+clone o projeto >> abra a pasta do projeto >> \
 botão direito do mouse, abrir com "o prompt de comando" >> \
 rode esses comandos:\
 npm i express\
