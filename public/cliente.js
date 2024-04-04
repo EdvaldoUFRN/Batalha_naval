@@ -8,6 +8,7 @@ let gameId = null;
 let njogador = null;
 let game = null;
 let pontos = 0;
+let verifica = 0;
 //fim variáveis
 
 //Elementos HTML
@@ -27,13 +28,17 @@ var rowLength = oTable.rows.length;
 btnComeca.addEventListener("click", e => {
 
 
+    if (verifica === 0) {
+        alert("Você precisa entrar primeiro em uma partida!");
+        return;
+    }
     var payLoad = {
         "method": "tabuleiro",
         "pecas": []
     }
     for (var i = 0; i < rowLength; i++) {
 
-        //gets cells of current row  
+        //gets cells of current row
         var oCells = oTable.rows.item(i).cells;
 
         //gets amount of cells of current row
@@ -56,10 +61,27 @@ btnComeca.addEventListener("click", e => {
                     "clientId": clientId,
                     "gameId": gameId
                 })
+                console.log("Teste Teste");
                 pontos++;
+                console.log(pontos);
             }
         }
     }
+    // if (pontos > 0 && verifica != 0 ) {
+    //     const payLoad = {
+    //         "method":"Pronto",
+    //         "game":game,
+    //         "clientId":clientId,
+    //         "jogador":njogador
+    //     }
+    //     console.log("Entrou na pontos > 0 e verifica !== 0")
+    //     ws.send(JSON.stringify(payLoad));
+    // }
+    if (pontos === 0) {
+        alert("Por favor preencha o seu tabuleiro com suas embarcações, para poder começar a jogar.");
+        return;
+    }
+    console.log("CHEGOU AQUI");
     console.log(payLoad.pecas);
     ws.send(JSON.stringify(payLoad));
 
@@ -78,6 +100,7 @@ btnCreate.addEventListener("click", e => {
 
 //Requisição "Join"
 btnJoin.addEventListener("click", e => {
+    verifica = 1;
     e.preventDefault();
     if (gameId === null) {
         gameId = txtGameId.value;
@@ -88,7 +111,7 @@ btnJoin.addEventListener("click", e => {
         "gameId": gameId
     }
     ws.send(JSON.stringify(payLoad));
-    
+
 })
 
 //Caixa de mensagens do cliente.
@@ -96,6 +119,21 @@ ws.onmessage = message => {
 
     //variável que guarda todas as informações passadas por ws.send.
     const response = JSON.parse(message.data);
+
+    // if (response.method === "Pronto") {
+    //     game = response.game;
+    //     console.log(response.game);
+    //     console.log(response.jogador);
+    //     console.log(gameId)
+    //     console.log("Chegou a receber a requisição do servidor no pronto");
+    //     if (gameId === game) {
+    //         if (response.jogador != njogador ) {
+    //             pronto++;
+    //             console.log("Entrou na função do method pronto");
+    //         }
+    //     }
+    // }
+
 
     //método para pegar o Id do jogador que o servidor gerou.
     if (response.method === "connect") {
@@ -121,13 +159,15 @@ ws.onmessage = message => {
     if (response.method === "joinErroTamanho") {
         alert("A sala já está cheia!");
     }
-    
+
     if (response.method === "joinErroJaEsta") {
         alert("Você já está na sala.");
     }
     //método join, vai informar se os jogadores entraram ou não na partida.
     if (response.method === "join") {
+
         game = response.game;
+        console.log(game);
         if (response.clientId == clientId) {
             njogador = response.jogador;
         }
@@ -149,9 +189,14 @@ ws.onmessage = message => {
         });
     }
 
-    
+
 
     if (response.method === "ataque") {
+        const tamanho = response.tamanho;
+        if (tamanho === 0) {
+            alert("Você não está em nenhuma partida.");
+            return;
+        }
         const clientId = response.clientId;
         const i = response.i;
         const j = response.j;
@@ -173,8 +218,11 @@ ws.onmessage = message => {
         }
         if (acertou === "não") {
             classee = "espacos bomba";
+        } else {
+            pontos--;
+            console.log(pontos);
         }
-        
+
         setCellClassName(i, j, classee, jogador, acertou);
     }
 };
@@ -225,16 +273,16 @@ function setCellClassName(i, j, className, jogadorr, acertou) {
     // Obtém a referência para a célula da tabela com os índices fornecidos
     let tabela = (jogadorr === njogador) ? "tabelaInimiga" : "myTable";
     console.log("Valor de tabela:", tabela);
-    if (acertou==="sim") {
+    if (acertou === "sim") {
         if (jogadorr === njogador) {
             alert("Você acertou uma embarcação.");
-        }else{
+        } else {
             alert("Seu adversário acertou uma embarcação.");
         }
-    }else{
+    } else {
         if (jogadorr === njogador) {
             alert("Você não acertou nada.");
-        }else{
+        } else {
             alert("Seu adversário não acertou nada.");
         }
     }
@@ -256,6 +304,10 @@ cells.forEach(function (cell) {
         var coordinates = getCellCoordinates(event);
         if (!gameId) {
             alert("Entre em uma partida.")
+            return;
+        }
+        if (verifica === 0) {
+            alert("Entre na partida.")
             return;
         }
         if (coordinates) {

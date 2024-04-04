@@ -104,6 +104,35 @@ wsServer.on("request", request => {
 
         }
 
+        // if (result.method === "Pronto") {
+
+        //     const clientID = result.clientId;
+        //     const jogador = result.jogador;
+        //     const game = result.game;
+        //     console.log("dentro do metodo pronto do servidor");
+        //     console.log(result.game.id);
+        //     const payLoad = {
+        //         "method" : "Pronto",
+        //         "jogador" : jogador,
+        //         "game":result.game.id
+        //     }
+        //     console.log("teste");
+        //     console.log(game.clients);
+        //     if (game && game.clients) {
+        //         game.clients.forEach(c => {
+                    
+        //         clients[c.clientId].connection.send(JSON.stringify(payLoad));
+        //         });
+        //     } else {
+        //         console.log("O objeto game ou game.clients é indefinido.");
+        //     }
+            
+        //     game.clients.forEach(c => {
+        //         console.log(c.clientId);
+        //         console.log(clients[c.clientId]);
+        //     });
+        // }
+
         if (result.method === "tabuleiro") {
             result.pecas.forEach(element => {
                 tabuleiro.pecas.push(element);
@@ -119,16 +148,21 @@ wsServer.on("request", request => {
             const game = result.game;
             let className = "";
             let acerto = "não";
+            console.log("entrou na função ataque");
             tabuleiro.pecas.forEach(element => {
                 if ((i === element.i && j === element.j) && (gameId === element.gameId && jogador != element.jogador)) {
                     acerto = "sim";
                     className = element.ClassName;
                     console.log(className);
+                    console.log(acerto);
                 }
+                console.log("entrou no tabuleiro peças");
             });
+            console.log("vai verificar se acerto é sim ou não");
             if (acerto != "sim") {
                 className = "espacos bomba";
             }
+                
             const payLoad = {
                 "method": "ataque",
                 "acertou": acerto,
